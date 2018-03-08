@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { Page, Box } from "@procore/core-react";
+import pokemonMetadata from "pokemon-metadata";
+
+const squirtle = pokemonMetadata.squirtle;
 
 class App extends Component {
   render() {
@@ -35,7 +38,7 @@ class App extends Component {
                 padding="md"
                 style={{ backgroundColor: "aliceblue", color: "gray", flex: 1 }}
               >
-                Body
+                Body {squirtle.height}
               </Box>
             </Page.Body>
           </Page.Main>
