@@ -1,22 +1,22 @@
 import React, { Component } from "react";
 import "./App.css";
 import { Page, Header, Card, Box } from "@procore/core-react";
-import Sidebar from "./components/sidebar";
+import Sidebar from "./components/Sidebar";
 
 class App extends Component {
   render() {
     return (
       <Page>
         <Page.Main>
-          <Page.Title>
+          <Page.ToolHeader>
             <Header.H1>Choose your Pokemon</Header.H1>
-          </Page.Title>
+          </Page.ToolHeader>
           <Page.Filters>
-            <Box style={{ borderTop: "solid 1px #ccc" }} padding="sm">
+            <Box padding="sm">
               Sort by stat, filter by type...
             </Box>
           </Page.Filters>
-          <Page.Body>
+          <Page.Body className="Body">
             <Card>A Pokemon</Card>
           </Page.Body>
         </Page.Main>
