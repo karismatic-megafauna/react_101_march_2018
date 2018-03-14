@@ -1,4 +1,13 @@
 /* Keeping for sake of example */
 .Body {
-  background-color: tomato;
+  background-color: white;
+}
+
+.stat-row {
+  border-bottom: 1px solid #ccc;
+  padding: 5px 0px;
+}
+
+.stat-name {
+  padding: 0px;
 }
