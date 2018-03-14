@@ -1,4 +1,15 @@
 /* Keeping for sake of example */
 .Body {
-  background-color: tomato;
+}
+
+.GridRow {
+  border-bottom: 1px solid black;
+}
+
+.Card {
+  padding: 20px;
+}
+
+.Image {
+  padding: 20px;
 }
