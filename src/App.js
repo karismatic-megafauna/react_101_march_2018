@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
-import { Page, Header, Card, Box } from "@procore/core-react";
+import { Page, Header, Box } from "@procore/core-react";
 import Sidebar from "./components/Sidebar";
+import PokeCard from "./components/PokeCard";
 
 class App extends Component {
   render() {
@@ -16,8 +17,8 @@ class App extends Component {
               Sort by stat, filter by type...
             </Box>
           </Page.Filters>
-          <Page.Body className="Body">
-            <Card>A Pokemon</Card>
+          <Page.Body>
+            <PokeCard />
           </Page.Body>
         </Page.Main>
         <Sidebar />
