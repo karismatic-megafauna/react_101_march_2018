@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import { Page, Header, Box } from "@procore/core-react";
+import { Page, Header, Box, Flex } from "@procore/core-react";
 import Sidebar from "./components/Sidebar";
 import PokeCard from "./components/PokeCard";
 import PokeDex from "pokemon-metadata";
@@ -22,18 +22,19 @@ class App extends Component {
           </Page.Filters>
           <Page.Body>
             {/* TODO: Spawn many PokeCards! */}
-
-            {Object.keys(pokemen).map(function (key) {
-              var pokemon = pokemen[key];
-              return (
-                <PokeCard
-                  name={pokemon.name}
-                  id={pokemon.id}
-                  imageUrl={pokemon.sprites.front_default}
-                  stats={pokemon.stats}
-                />
-              );
-            })}
+            <Flex wrap="wrap" style={{ width: '100%'}}>
+              {Object.keys(pokemen).map(function (key) {
+                var pokemon = pokemen[key];
+                return (
+                  <PokeCard
+                    name={pokemon.name}
+                    id={pokemon.id}
+                    imageUrl={pokemon.sprites.front_default}
+                    stats={pokemon.stats}
+                  />
+                );
+              })}
+            </Flex>
           </Page.Body>
         </Page.Main>
         <Sidebar />
