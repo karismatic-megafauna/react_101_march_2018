@@ -2,7 +2,11 @@ import React from 'react';
 import { Box, Card, Header, Flex, Icon } from '@procore/core-react';
 import '../App.css';
 
-const Stat = ({name, value}) => (
+//------ Stat --------
+// Private Component
+// Stateless Component with implicit return
+// Destrucruting props
+const Stat = ({ name, value }) => (
   <Flex
     style={{ borderBottom: '1px solid black', width: '100%', padding: '6px 0'}}
     justifyContent="space-between"
@@ -12,6 +16,11 @@ const Stat = ({name, value}) => (
   </Flex>
 );
 
+// ------ PokeCard --------
+// Exported component
+// Stateless Component with explicit return
+// Assigning keys to variables
+// TODO: find the rest of the props in the component
 const PokeCard = (props) => {
   const name = props.name || 'squirtle';
   return (
