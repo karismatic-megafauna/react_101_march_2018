@@ -3,22 +3,18 @@ import "./App.css";
 import { Page, Header, Box } from "@procore/core-react";
 import Sidebar from "./components/Sidebar";
 import PokeCard from "./components/PokeCard";
+import pokemonData from 'pokemon-metadata';
 
 class App extends Component {
   render() {
+    const pokemonDummyData = pokemonData.bulbasaur;
+    
     // TODO: Get this data into `PokeCard` via props!
     const pokemon = {
-      name: 'super squirtle',
-      id: 7,
-      image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
-      stats: {
-        hp: 100,
-        specialAttack: 100,
-        specialDefense: 100,
-        defense: 100,
-        speed: 100,
-        attack: 100,
-      }
+      name: pokemonDummyData.name,
+      id: pokemonDummyData.id,
+      image: pokemonDummyData.sprites.front_default,
+      stats: pokemonDummyData.stats,
     };
 
     return (
@@ -34,7 +30,12 @@ class App extends Component {
           </Page.Filters>
           <Page.Body>
             {/* TODO: Spawn many PokeCards! */}
-            <PokeCard />
+            <PokeCard
+              name={pokemon.name}
+              id={pokemon.id} 
+              image={pokemon.image}
+              stats={pokemon.stats}
+            />
           </Page.Body>
         </Page.Main>
         <Sidebar />

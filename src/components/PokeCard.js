@@ -22,7 +22,11 @@ const Stat = ({ name, value }) => (
 // Assigning keys to variables
 // TODO: find the rest of the props in the component
 const PokeCard = (props) => {
-  const name = props.name || 'squirtle';
+  const name = props.name || '';
+  const id = props.id || '';
+  const image = props.image || '';
+  const stats = props.stats || [];
+  
   return (
     <Box margin="md">
       <Card variant="hoverable" style={{ width: '270px' }}>
@@ -30,7 +34,7 @@ const PokeCard = (props) => {
           <Flex direction="column">
             <Flex justifyContent="space-between" style={{ width: '100%' }}>
               <div>
-                <Header.H3>#7 {name}</Header.H3>
+                <Header.H3>#{id} {name}</Header.H3>
               </div>
               <div>
                 <Icon clickable={true} size="sm" icon="star" />
@@ -38,16 +42,17 @@ const PokeCard = (props) => {
             </Flex>
 
             <Flex justifyContent="center" style={{ width: '100%' }}>
-              <img alt={name} src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png" />
+              <img alt={name} src={image} />
             </Flex>
 
             <Flex wrap="wrap" style={{ width: '100%'}}>
-              <Stat name="speed" value={50} />
-              <Stat name="special-defense" value={50} />
-              <Stat name="special-attack" value={50} />
-              <Stat name="defense" value={50} />
-              <Stat name="attack" value={50} />
-              <Stat name="hp" value={50} />
+              { 
+                stats.map(pokestat => 
+                  <Stat 
+                    name={pokestat.stat.name} 
+                    value={pokestat.base_stat} 
+                  />)
+              }
             </Flex>
           </Flex>
         </Box>
