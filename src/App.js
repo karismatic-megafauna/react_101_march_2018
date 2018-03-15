@@ -10,6 +10,8 @@ class App extends Component {
     const pokemonDummyData = pokemonData.bulbasaur;
     
     // TODO: Get this data into `PokeCard` via props!
+    // hint: uncomment the line below to see how to turn an object to an array 
+    //console.log(Object.keys(pokemonData))
     const pokemon = {
       name: pokemonDummyData.name,
       id: pokemonDummyData.id,

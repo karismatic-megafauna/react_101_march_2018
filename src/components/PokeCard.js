@@ -46,13 +46,12 @@ const PokeCard = (props) => {
             </Flex>
 
             <Flex wrap="wrap" style={{ width: '100%'}}>
-              { 
-                stats.map(pokestat => 
-                  <Stat 
-                    name={pokestat.stat.name} 
-                    value={pokestat.base_stat} 
-                  />)
-              }
+              {stats.map(pokestat => 
+                <Stat 
+                  name={pokestat.stat.name} 
+                  value={pokestat.base_stat} 
+                />
+              )}
             </Flex>
           </Flex>
         </Box>
