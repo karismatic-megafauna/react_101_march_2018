@@ -9,9 +9,7 @@ class App extends Component {
   // ------ this.buildPokeCards -------
   // Instance Method
   // Receives an array of pokemon names,
-  // Returns an array of PokeCards,
-  //   with one PokeCard for each pokemon name,
-  //   in the same order the names were supplied
+  // Returns an array of PokeCards, one for each pokemon name supplied
   buildPokeCards = pokemonNames => {
     return pokemonNames.map(pokemonName => {
       const pokemon = Pokedex[pokemonName];
@@ -19,11 +17,19 @@ class App extends Component {
     });
   };
 
+  // ------ this.sortedAndFilteredPokemon -------
+  // Instance Method
+  // Receives no arguments
+  // Returns an array of pokemon, sorted and filtered using component's state
+  sortAndFilterPokemon = () => {
+    // TODO: sort/filter the Pokedex based on user input
+    return Pokedex;
+  };
+
   // TODO: Create the Sort/Filter controls
-  // TODO: sort/filter allPokemon based on user input
   render() {
-    const allPokemon = Pokedex;
-    const pokemonNames = Object.keys(allPokemon);
+    const pokemon = this.sortAndFilterPokemon();
+    const pokemonNames = Object.keys(pokemon);
     const pokeCards = this.buildPokeCards(pokemonNames);
 
     return (
