@@ -6,12 +6,19 @@ import PokeCard from "./components/PokeCard";
 import Pokedex from "pokemon-metadata";
 
 class App extends Component {
-  render() {
+  // TODO: Create the Sort/Filter controls
+
+  buildPokeCards = () => {
     const pokemonNames = Object.keys(Pokedex);
-    const pokeCards = pokemonNames.map(pokemonName => {
+
+    return pokemonNames.map(pokemonName => {
       const pokemon = Pokedex[pokemonName];
-      return <PokeCard pokemon={pokemon} />;
+      return <PokeCard key={pokemon.name} pokemon={pokemon} />;
     });
+  };
+
+  render() {
+    const pokeCards = this.buildPokeCards();
 
     return (
       <Page>
