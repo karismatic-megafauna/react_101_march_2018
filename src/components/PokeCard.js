@@ -2,6 +2,11 @@ import React from "react";
 import { Box, Card, Header, Flex, Icon } from "@procore/core-react";
 import "../App.css";
 
+//------ Stat --------
+// Private Component
+// Stateless Component with implicit return
+// Destructuring props
+
 const Stat = ({ name, value }) => (
   <Flex
     style={{ borderBottom: "1px solid black", width: "100%", padding: "6px 0" }}
@@ -12,8 +17,14 @@ const Stat = ({ name, value }) => (
   </Flex>
 );
 
-const PokeCard = ({ pokemon }) => {
-  const { name, stats, sprites } = pokemon;
+// ------ PokeCard --------
+// Exported component
+// Stateless Component with explicit return
+// Assigning keys to variables
+
+const PokeCard = props => {
+  const { name, stats, sprites } = props.pokemon;
+
   const statComponents = stats.map(stat => {
     return (
       <Stat key={stat.stat.name} name={stat.stat.name} value={stat.base_stat} />
