@@ -13,7 +13,7 @@ class App extends Component {
   // Returns an array of PokeCards,
   //   with one PokeCard for each pokemon name,
   //   in the same order the names were supplied
-  buildPokeCards = {pokemonNames} => {
+  buildPokeCards = ({ pokemonNames }) => {
     return pokemonNames.map(pokemonName => {
       const pokemon = Pokedex[pokemonName];
       return <PokeCard key={pokemon.name} pokemon={pokemon} />;
@@ -23,7 +23,7 @@ class App extends Component {
   // TODO: Create the Sort/Filter controls
   render() {
     const pokemonNames = Object.keys(Pokedex);
-    const pokeCards = this.buildPokeCards({pokemonNames});
+    const pokeCards = this.buildPokeCards({ pokemonNames });
 
     return (
       <Page>
