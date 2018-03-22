@@ -8,12 +8,11 @@ import Pokedex from "pokemon-metadata";
 class App extends Component {
   // ------ this.buildPokeCards -------
   // Instance Method
-  // Receives named arguments,
-  //   specifically pokemonNames (array),
+  // Receives an array of pokemon names,
   // Returns an array of PokeCards,
   //   with one PokeCard for each pokemon name,
   //   in the same order the names were supplied
-  buildPokeCards = ({ pokemonNames }) => {
+  buildPokeCards = pokemonNames => {
     return pokemonNames.map(pokemonName => {
       const pokemon = Pokedex[pokemonName];
       return <PokeCard key={pokemon.name} pokemon={pokemon} />;
@@ -21,9 +20,11 @@ class App extends Component {
   };
 
   // TODO: Create the Sort/Filter controls
+  // TODO: sort/filter allPokemon based on user input
   render() {
-    const pokemonNames = Object.keys(Pokedex);
-    const pokeCards = this.buildPokeCards({ pokemonNames });
+    const allPokemon = Pokedex;
+    const pokemonNames = Object.keys(allPokemon);
+    const pokeCards = this.buildPokeCards(pokemonNames);
 
     return (
       <Page>
