@@ -38,7 +38,12 @@ const PokeCard = props => {
               <Header.H3>#7 {name}</Header.H3>
             </div>
             <div>
-              <Icon clickable={true} size="sm" icon="star" />
+              <Icon
+                clickable={true}
+                size="sm"
+                icon="star"
+                onClick={props.iconClick(name)}
+              />
             </div>
           </Flex>
 
@@ -51,6 +56,10 @@ const PokeCard = props => {
       </Card>
     </div>
   );
+};
+
+PokeCard.defaultProps = {
+  iconClick: () => {}
 };
 
 export default PokeCard;
