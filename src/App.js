@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Pokedex from "pokemon-metadata";
+import PokeObject from "pokemon-metadata";
 import { Input, Page, Header, Flex } from "@procore/core-react";
 
 import "./App.css";
@@ -12,12 +12,12 @@ class App extends Component {
     super(props);
     this.state = {
       searchTerm: '',
-      pokemonData: turnObjectIntoArray(Pokedex),
+      pokemonArray: turnObjectIntoArray(PokeObject),
     };
   }
 
   render() {
-    const { pokemonData, searchTerm } = this.state;
+    const { pokemonArray, searchTerm } = this.state;
     return (
       <Page>
         <Page.Main>
@@ -36,7 +36,7 @@ class App extends Component {
           </Page.Filters>
           <Page.Body>
             <Flex wrap="wrap">
-              {pokemonData
+              {pokemonArray
                   .filter((poke) => {
                     return poke.name.includes(searchTerm)
                   })
