@@ -6,7 +6,6 @@ import "../App.css";
 // Private Component
 // Stateless Component with implicit return
 // Destructuring props
-
 const Stat = ({ name, value }) => (
   <Flex
     style={{ borderBottom: "1px solid black", width: "100%", padding: "6px 0" }}
@@ -21,7 +20,6 @@ const Stat = ({ name, value }) => (
 // Exported component
 // Stateless Component with explicit return
 // Assigning keys to variables
-
 const PokeCard = props => {
   const { name, stats, sprites } = props.pokemon;
 

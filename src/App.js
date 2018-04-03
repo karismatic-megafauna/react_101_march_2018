@@ -1,37 +1,23 @@
 import React, { Component } from "react";
+import Pokedex from "pokemon-metadata";
+import { Input, Page, Header, Flex } from "@procore/core-react";
+
 import "./App.css";
-import { Page, Header, Box, Flex } from "@procore/core-react";
 import Sidebar from "./components/Sidebar";
 import PokeCard from "./components/PokeCard";
-import Pokedex from "pokemon-metadata";
+import { turnObjectIntoArray } from './utils';
 
 class App extends Component {
-  // ------ this.buildPokeCards -------
-  // Instance Method
-  // Receives an array of pokemon names,
-  // Returns an array of PokeCards, one for each pokemon name supplied
-  buildPokeCards = pokemonNames => {
-    return pokemonNames.map(pokemonName => {
-      const pokemon = Pokedex[pokemonName];
-      return <PokeCard key={pokemon.name} pokemon={pokemon} />;
-    });
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchTerm: '',
+      pokemonData: turnObjectIntoArray(Pokedex),
+    };
+  }
 
-  // ------ this.sortedAndFilteredPokemon -------
-  // Instance Method
-  // Receives no arguments
-  // Returns an array of pokemon, sorted and filtered using component's state
-  sortAndFilterPokemon = () => {
-    // TODO: sort/filter the Pokedex based on user input
-    return Pokedex;
-  };
-
-  // TODO: Create the Sort/Filter controls
   render() {
-    const pokemon = this.sortAndFilterPokemon();
-    const pokemonNames = Object.keys(pokemon);
-    const pokeCards = this.buildPokeCards(pokemonNames);
-
+    const { pokemonData, searchTerm } = this.state;
     return (
       <Page>
         <Page.Main>
@@ -39,10 +25,26 @@ class App extends Component {
             <Header.H1>Choose your Pokemon</Header.H1>
           </Page.ToolHeader>
           <Page.Filters>
-            <Box padding="sm">Sort by stat, filter by type...</Box>
+            <Header type="h2">Search by Name</Header>
+            <Input onChange={(event) => {
+              const payload = {
+                searchTerm: event.target.value,
+              }
+
+              this.setState(payload);
+            }}/>
           </Page.Filters>
           <Page.Body>
-            <Flex wrap="wrap">{pokeCards}</Flex>
+            <Flex wrap="wrap">
+              {pokemonData
+                  .filter((poke) => {
+                    return poke.name.includes(searchTerm)
+                  })
+                  .map((poke) => {
+                    return <PokeCard key={poke.name} pokemon={poke} />;
+                  })
+              }
+            </Flex>
           </Page.Body>
         </Page.Main>
         <Sidebar />
