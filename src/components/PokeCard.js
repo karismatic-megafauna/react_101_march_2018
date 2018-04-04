@@ -21,7 +21,8 @@ const Stat = ({ name, value }) => (
 // Stateless Component with explicit return
 // Assigning keys to variables
 const PokeCard = props => {
-  const { name, stats, sprites } = props.pokemon;
+  const { pokemon, addToTeam } = props;
+  const { id, name, stats, sprites } = pokemon;
 
   const statComponents = stats.map(stat => {
     return (
@@ -35,10 +36,19 @@ const PokeCard = props => {
         <Box padding="md">
           <Flex justifyContent="space-between" style={{ width: "100%" }}>
             <div>
-              <Header.H3>#7 {name}</Header.H3>
+              <Header.H3>
+                #{id} {name}
+              </Header.H3>
             </div>
             <div>
-              <Icon clickable={true} size="sm" icon="star" />
+              <Icon
+                onClick={() => {
+                  addToTeam(name);
+                }}
+                clickable={true}
+                size="sm"
+                icon="star"
+              />
             </div>
           </Flex>
 
