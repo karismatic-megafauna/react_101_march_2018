@@ -1,0 +1,9 @@
+- [x] Create party state
+- [x] On star click within main list
+    - [x] add pokemon to party state
+    - [x] remove pokemon from pokemon array
+- [x] display pokecards of pokemon from party state on sidebar
+- [x] On star click within sidebar
+   - [x] remove pokemon from party state
+   - [x] add pokemon to pokemon array
+- [ ] Fill star in   
